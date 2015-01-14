@@ -21,7 +21,7 @@
 # MA 02111-1307 USA
 #
 
-include $(TOPDIR)/config.mk
+#include $(TOPDIR)/config.mk
 
 LIB	= $(obj)lib$(BOARD).a
 
@@ -60,7 +60,7 @@ distclean:	clean
 #########################################################################
 
 # defines $(obj).depend target
-include $(SRCTREE)/rules.mk
+#include $(SRCTREE)/rules.mk
 
 sinclude $(obj).depend
 

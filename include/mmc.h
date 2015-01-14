@@ -12,6 +12,7 @@
 
 #include <linux/list.h>
 #include <linux/compiler.h>
+#include <asm-arm/arch-s3c24x0/mmc.h>
 
 #define SD_VERSION_SD	0x20000
 #define SD_VERSION_3	(SD_VERSION_SD | 0x300)
@@ -224,7 +225,7 @@
  * boot partitions (2), general purpose partitions (4) in MMC v4.4.
  */
 #define MMC_NUM_BOOT_PARTITION	2
-
+/*
 struct mmc_cid {
 	unsigned long psn;
 	unsigned short oid;
@@ -233,7 +234,7 @@ struct mmc_cid {
 	unsigned char mdt;
 	char pnm[7];
 };
-
+*/
 struct mmc_cmd {
 	ushort cmdidx;
 	uint resp_type;

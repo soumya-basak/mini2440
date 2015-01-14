@@ -13,6 +13,7 @@
 #include <stdio_dev.h>
 #include <exports.h>
 #include <environment.h>
+#include <fads.h>
 
 DECLARE_GLOBAL_DATA_PTR;
 

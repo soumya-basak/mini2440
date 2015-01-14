@@ -24,6 +24,7 @@
 #if defined(CONFIG_8xx)
 #include <mpc8xx.h>
 #endif
+#define CONFIG_SYS_LOAD_ADDR            0x00100000
 
 int
 source (ulong addr, const char *fit_uname)

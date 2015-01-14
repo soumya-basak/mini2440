@@ -31,10 +31,10 @@
 
 #include <nand.h>
 
-#define __REGb(x)	(*(volatile unsigned char *)(x))
-#define __REGi(x)	(*(volatile unsigned int *)(x))
+//#define __REGb(x)       *((volatile unsigned char *)(x))
+#define __REGi(x)       *((volatile unsigned int *)(x))
 
-//#define	NF_BASE		0x4e000000
+#define	NF_BASE		0x4e000000
 
 //#define	NFCONF		__REGi(NF_BASE + 0x0)
 
@@ -63,7 +63,7 @@
 #elif defined(CONFIG_S3C2440) || defined(CONFIG_S3C2442)
 #include <s3c2440.h>
 
-#define NF_BASE S3C2440_NAND_BASE
+//#define NF_BASE S3C2440_NAND_BASE
 
 #define oNFCMD		0x8
 #define oNFADDR		0xc
@@ -89,7 +89,7 @@
 
 //#define	NFCMD		__REGb(NF_BASE + oNFCMD)
 //#define	NFADDR		__REGb(NF_BASE + oNFADDR)
-//#define	NFDATA		__REGb(NF_BASE + oNFDATA)
+#define	NFDATA		__REGb(NF_BASE + oNFDATA)
 //#define	NFSTAT		__REGb(NF_BASE + oNFSTAT)
 
 #if defined(CONFIG_HXD8)
@@ -175,15 +175,15 @@ static void s3c2410_hwcontrol(struct mtd_info *mtd, int cmd)
 		DEBUGN("NFCONF=0x%08x\n", NFCONF);
 		break;
 	case NAND_CTL_SETALE:
-		chip->IO_ADDR_W = NF_BASE + oNFADDR;
+		chip->IO_ADDR_W = (void __iomem *)(NF_BASE + oNFADDR);
 		DEBUGN("SETALE\n");
 		break;
 	case NAND_CTL_SETCLE:
-		chip->IO_ADDR_W = NF_BASE + oNFCMD;
+		chip->IO_ADDR_W = (void __iomem *)(NF_BASE + oNFCMD);
 		DEBUGN("SETCLE\n");
 		break;
 	default:
-		chip->IO_ADDR_W = NF_BASE + oNFDATA;
+		chip->IO_ADDR_W = (void __iomem *)(NF_BASE + oNFDATA);
 		break;
 	}
 	return;
@@ -263,7 +263,7 @@ static int s3c244x_nand_correct_data(struct mtd_info *mtd, u_char *dat,
 
 int __board_nand_init(struct nand_chip *nand)
 {
-	u_int32_t cfg;
+	//u_int32_t cfg;
 	u_int8_t tacls, twrph0, twrph1;
 	S3C24X0_CLOCK_POWER * const clk_power = S3C24X0_GetBase_CLOCK_POWER();
 
@@ -288,7 +288,7 @@ int __board_nand_init(struct nand_chip *nand)
 #endif
 
 	/* initialize nand_chip data structure */
-	nand->IO_ADDR_R = nand->IO_ADDR_W = NF_BASE + oNFDATA;
+	nand->IO_ADDR_R = nand->IO_ADDR_W = (void __iomem *)(NF_BASE + oNFDATA);
 
 	/* read_buf and write_buf are default */
 	/* read_byte and write_byte are default */

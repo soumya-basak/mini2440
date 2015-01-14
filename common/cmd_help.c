@@ -7,6 +7,7 @@
 
 #include <common.h>
 #include <command.h>
+#define CONFIG_SYS_MAXARGS              16              /* max number of command args   */
 
 static int do_help(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 {

@@ -10,6 +10,7 @@
  */
 #include <common.h>
 #include <command.h>
+#include <fads.h>
 
 #ifdef CONFIG_HAS_DATAFLASH
 #include <dataflash.h>
@@ -17,7 +18,6 @@
 
 #if defined(CONFIG_CMD_MTDPARTS)
 #include <jffs2/jffs2.h>
-
 /* partition handling routines */
 int mtdparts_init(void);
 int mtd_id_parse(const char *id, const char **ret_id, u8 *dev_type, u8 *dev_num);

@@ -22,6 +22,9 @@
 #include <watchdog.h>
 #include <linux/ctype.h>
 
+#define CONFIG_SYS_MAXARGS              16              /* max number of command args   */
+#define CONFIG_SYS_CBSIZE               1024            /* Console I/O Buffer Size      */
+
 DECLARE_GLOBAL_DATA_PTR;
 
 /*

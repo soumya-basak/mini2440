@@ -9,6 +9,7 @@
 
 #include <common.h>
 #include <flash.h>
+#include <fads.h>
 
 #if !defined(CONFIG_SYS_NO_FLASH)
 #include <mtd/cfi_flash.h>

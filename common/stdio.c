@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier:	GPL-2.0+
  */
-
+#include <fads.h>
 #include <config.h>
 #include <common.h>
 #include <stdarg.h>
@@ -18,6 +18,7 @@
 #ifdef CONFIG_LOGBUFFER
 #include <logbuff.h>
 #endif
+#define CONFIG_SYS_I2C_SPEED            400000  /* I2C speed and slave address defaults */
 
 #if defined(CONFIG_HARD_I2C) || defined(CONFIG_SYS_I2C)
 #include <i2c.h>

@@ -219,7 +219,7 @@ obj-y += env_nowhere.o
 endif
 endif
 # core command
-obj-y += cmd_nvedit.o
+#obj-y += cmd_nvedit.o
 #environment
 obj-y += env_common.o
 #others

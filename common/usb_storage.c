@@ -41,7 +41,6 @@
 
 #undef BBB_COMDAT_TRACE
 #undef BBB_XPORT_TRACE
-
 #include <scsi.h>
 /* direction table -- this indicates the direction of the data
  * transfer for each command code -- a 1 indicates input
@@ -1404,7 +1403,7 @@ int usb_stor_get_info(struct usb_device *dev, struct us_data *ss,
 	debug("Capacity = 0x%lx, blocksz = 0x%lx\n", *capacity, *blksz);
 	dev_desc->lba = *capacity;
 	dev_desc->blksz = *blksz;
-	dev_desc->log2blksz = LOG2(dev_desc->blksz);
+	//dev_desc->log2blksz = LOG2(dev_desc->blksz);
 	dev_desc->type = perq;
 	debug(" address %d\n", dev_desc->target);
 	debug("partype: %d\n", dev_desc->part_type);

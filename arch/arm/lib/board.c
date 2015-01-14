@@ -39,10 +39,11 @@
 #include <post.h>
 #include <logbuff.h>
 #include <asm/sections.h>
-
 #ifdef CONFIG_BITBANGMII
 #include <miiphy.h>
 #endif
+#define CONFIG_SYS_I2C_SPEED    0
+#define CONFIG_SYS_SDRAM_BASE 0
 
 DECLARE_GLOBAL_DATA_PTR;
 

@@ -12,6 +12,8 @@
 #include <common.h>
 #include <command.h>
 #include <linux/ctype.h>
+#define CONFIG_SYS_CBSIZE               1024            /* Console I/O Buffer Size      */
+#define CONFIG_SYS_MAXARGS              16              /* max number of command args   */
 
 /*
  * Use puts() instead of printf() to avoid printf buffer overflow

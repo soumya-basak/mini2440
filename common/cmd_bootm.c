@@ -22,6 +22,8 @@
 #include <asm/byteorder.h>
 #include <asm/io.h>
 #include <linux/compiler.h>
+#define CONFIG_SYS_MAXARGS              16              /* max number of command args   */
+#define CONFIG_SYS_MAX_FLASH_BANKS      4       /* max number of memory banks           */
 
 #if defined(CONFIG_BOOTM_VXWORKS) && \
 	(defined(CONFIG_PPC) || defined(CONFIG_ARM))

@@ -7,6 +7,7 @@
  * SPDX-License-Identifier:	GPL-2.0+
  */
 
+#include <fads.h>
 #ifndef USE_HOSTCC
 #include <common.h>
 #include <watchdog.h>

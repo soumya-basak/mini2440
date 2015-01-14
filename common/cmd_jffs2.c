@@ -78,6 +78,8 @@
 #include <linux/list.h>
 #include <linux/ctype.h>
 #include <cramfs/cramfs_fs.h>
+#include <fads.h>
+#define CONFIG_SYS_MAX_NAND_DEVICE      1         /* Max number of NAND devices */
 
 #if defined(CONFIG_CMD_NAND)
 #include <linux/mtd/nand.h>

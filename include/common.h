@@ -23,6 +23,7 @@ typedef volatile unsigned char	vu_char;
 #include <linux/stringify.h>
 #include <asm/ptrace.h>
 #include <stdarg.h>
+#define CONFIG_SYS_MALLOC_LEN           (2500 << 10) 
 #if defined(CONFIG_PCI) && defined(CONFIG_4xx)
 #include <pci.h>
 #endif
@@ -232,6 +233,7 @@ typedef void (interrupt_handler_t)(void *);
 		s64 __x = (x);			\
 		(__x < 0) ? -__x : __x;		\
 	})
+#define CONFIG_ENV_SIZE         0x4000  /* Total Size of Environment            */
 
 #if defined(CONFIG_ENV_IS_EMBEDDED)
 #define TOTAL_MALLOC_LEN	CONFIG_SYS_MALLOC_LEN

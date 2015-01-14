@@ -14,6 +14,7 @@
 #include <net.h>
 #include <exports.h>
 #include <xyzModem.h>
+#include <fads.h>
 
 DECLARE_GLOBAL_DATA_PTR;
 

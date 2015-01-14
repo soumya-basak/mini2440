@@ -11,6 +11,7 @@
 #include <common.h>
 #include <command.h>
 #include <net.h>
+#define CONFIG_SYS_MAXARGS              16              /* max number of command args   */
 
 #ifdef CONFIG_CMD_GO
 

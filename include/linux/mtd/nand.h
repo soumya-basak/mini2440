@@ -67,6 +67,27 @@ extern void nand_wait_ready(struct mtd_info *mtd);
 #define NAND_CTRL_CHANGE	0x80
 
 /*
+ * Constants for hardware specific CLE/ALE/NCE function
+*/
+/* Select the chip by setting nCE to low */
+#define NAND_CTL_SETNCE         1
+/* Deselect the chip by setting nCE to high */
+#define NAND_CTL_CLRNCE         2
+/* Select the command latch by setting CLE to high */
+#define NAND_CTL_SETCLE         3
+/* Deselect the command latch by setting CLE to low */
+#define NAND_CTL_CLRCLE         4
+/* Select the address latch by setting ALE to high */
+#define NAND_CTL_SETALE         5
+/* Deselect the address latch by setting ALE to low */
+#define NAND_CTL_CLRALE         6
+/* Set write protection by setting WP to high. Not used! */
+#define NAND_CTL_SETWP          7
+/* Clear write protection by setting WP to low. Not used! */
+#define NAND_CTL_CLRWP          8
+
+
+/*
  * Standard NAND flash commands
  */
 #define NAND_CMD_READ0		0
@@ -524,6 +545,7 @@ struct nand_chip {
 			int feature_addr, uint8_t *subfeature_para);
 	int (*onfi_get_features)(struct mtd_info *mtd, struct nand_chip *chip,
 			int feature_addr, uint8_t *subfeature_para);
+	 void            (*hwcontrol)(struct mtd_info *mtd, int cmd);
 
 	int chip_delay;
 	unsigned int options;
@@ -549,14 +571,17 @@ struct nand_chip {
 #endif
 
 	int state;
-
+	int             eccmode;
+        int             eccsize;
+        int             eccbytes;
+        int             eccsteps;
 	uint8_t *oob_poi;
 	struct nand_hw_control *controller;
 	struct nand_ecclayout *ecclayout;
 
 	struct nand_ecc_ctrl ecc;
 	struct nand_buffers *buffers;
-	struct nand_hw_control hwcontrol;
+	struct nand_hw_control *ncontroller;
 
 	uint8_t *bbt;
 	struct nand_bbt_descr *bbt_td;

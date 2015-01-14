@@ -15,5 +15,5 @@ obj-y   += usb.o
 obj-y   += usb_ohci.o
 obj-y   += nand_read.o
 obj-y   += nand.o
-obj-y   += cmd_s3c24xx.o
-obj-y   += mmc.o
+#obj-y   += mmc.o
+#obj-y   += cmd_s3c24xx.o

@@ -27,6 +27,8 @@
 #include <asm/byteorder.h>
 #include <jffs2/jffs2.h>
 #include <nand.h>
+#include <fads.h>
+#define CONFIG_SYS_MAX_NAND_DEVICE      1         /* Max number of NAND devices */
 
 #if defined(CONFIG_CMD_MTDPARTS)
 

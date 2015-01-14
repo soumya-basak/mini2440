@@ -7,6 +7,7 @@
 #include <common.h>
 #include <command.h>
 #include <part.h>
+#define CONFIG_SYS_LOAD_ADDR            0x00100000
 
 #if defined(CONFIG_CMD_IDE) || defined(CONFIG_CMD_SCSI) || \
 	defined(CONFIG_USB_STORAGE)
